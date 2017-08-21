@@ -2,23 +2,23 @@
 
 ROW=`wc -l < gsync.log`
 echo $ROW
-ROW=0
+
+exec 3<&0
+exec 0<gsync.log
+
+ROW=1
 while read LINE ; do
-    echo $LINE
+    echo "$ROW $LINE"
     ((ROW=ROW+1))
-    if [ $ROW -eq 10 ]; then
-        ls -al /proc/self/fd
+    if [ $ROW -gt 10 ]; then
         break
     fi
-done < /home/faye/gsync.log
+done
 
+exec 0<&3
+exec 3<&-
 ls -al /proc/self/fd
 
-#echo -e "`ps`"
-#str=($(echo -e "`ps -o pid,comm`" | grep opt.sh))
-#echo ${str[*]}
-
-#fuser -um /home/faye/gsync.log
 
 
 
