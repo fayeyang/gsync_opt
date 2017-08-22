@@ -1,4 +1,15 @@
- 8586 pts/15   00:00:00 opt.sh
- 8590 pts/15   00:00:00 opt.sh
- 8591 pts/15   00:00:00 opt.sh
- 8593 pts/15   00:00:00 opt.sh
+
+Profile folder: /home/faye/.goodsync
+Loaded 3 jobs from /home/faye/.goodsync/jobs-groups-options.tix.
+164815 Parsed Command Line: [[
+Global Opt: /ll=2
+Command: analyze
+Cmd Arg: work_all
+]]
+
+=== Job === work_all: 'file:///home/faye/work' <-> 'file:///mnt/DTSE9/work'
+164815 -- Analysis Started by Unknown
+165207 Analyze has finished with Errors. Click Errors button to see all error items
+165207 Changes: 357, Conflicts: 0, CopyTime: 0, FixState: 1933, Errors: 357, All: 462349
+165207 -- Analysis Complete. Time 00:03:52, Speed: 8891 files/s
+
