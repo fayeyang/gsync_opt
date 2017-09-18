@@ -1,12 +1,14 @@
 #!/bin/bash
 
-ROW=`wc -l < /home/faye/work/gsync/gsync.log`
+ROW=`wc -l < /home/faye/work/gsync_opt/gsync.log`
 echo $ROW
 
-while read LINE ; do
-    if [ "`echo "$LINE" | grep "are named the same after normalization and lower-casing:"`" ] ; then
+while read CURRENTLINE ; do
+    if [ "`echo "$CURRENTLINE" | grep "are named the same after normalization and lower-casing:"`" ] ; then
+        filename=$( echo "$CURRENTLINE" | awk -v FS="'" '{ print $2; exit }' )
+        echo "$filename" >> tmp.log
         continue
     fi
-    echo "$LINE" >> /home/faye/work/gsync/test1.log
-done < /home/faye/work/gsync/gsync.log
+    echo "$CURRENTLINE" >> /home/faye/work/gsync_opt/test.log
+done < /home/faye/work/gsync_opt/gsync.log
 
