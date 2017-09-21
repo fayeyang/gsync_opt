@@ -7,3 +7,10 @@ filename_sed=$( echo $filename | sed 's/\//\\\//g' )
 
 echo $filename
 echo $filename_sed
+
+awk -v FS=':' '/faye/{
+	for( i=1; i<3; i++ ){
+		print NR,$i	
+	}
+}' /etc/passwd
+
